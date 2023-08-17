@@ -25,8 +25,11 @@ jobs:
         run: npm run build
 
       - name: Deploy to Github Pages
-        uses: JamesIves/github-pages-deploy-action@release/v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          brach: gh-pages
-          folder: build
+          publish_dir: ./dist
+          github_token: ${{ secrets.PUBLISH }}
+          user_name: ${{ secrets.MY_USER_NAME}}
+          user_email: ${{ secrets.MY_USER_EMAIL }}
+          commit_message: 自动部署
      
